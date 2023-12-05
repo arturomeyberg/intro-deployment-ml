@@ -1,0 +1,4 @@
+['remote "dataset-track"']
+    url = gs://global-data/project=mlops/dataset/
+['remote "model-track"']
+    url = gs://global-data/project=mlops/model/
