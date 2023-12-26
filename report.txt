@@ -1,0 +1,5 @@
+# Pipeline description### {key}: {value.__repr__()}
+### {key}: {value.__repr__()}
+## Train Score {trainScore}
+## Test Score {testScore}
+## Validation Score {valScore}
