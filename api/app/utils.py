@@ -6,7 +6,7 @@ import os
 from io import BytesIO
 
 def getModel()-> Pipeline:
-    modelPath = os.environ.get('MODEL_PATH','../model/model.pkl')
+    modelPath = os.environ.get('MODEL_PATH','model/model.pkl')
     
     model = load(modelPath)
     return model
