@@ -28,7 +28,7 @@ jobs:
           export GOOGLE_APPLICATION_CREDENTIALS=$(python utilities/setter.py)
           dvc pull model/model.pkl.dvc -r model-track
           dvc unprotect model/model.pkl
-          dvc model repro -f
+          dvc repro -f 
           echo "Training completed"
           dvc add model/model.pkl -r model-track --to-remote
           dvc push model/model.pkl.dvc -r model-track
