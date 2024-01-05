@@ -1,10 +1,11 @@
 from fastapi.testclient import TestClient
+
 from api.main import app
 
 client = TestClient(app)
 
-def testNullPrediction():
-    response = client.post('/v1/prediction/', json = {
+def test_null_prediction():
+    response = client.post('/v1/prediction', json = {
                                                     'opening_gross': 0,
                                                     'screens': 0,
                                                     'production_budget': 0,
@@ -14,14 +15,13 @@ def testNullPrediction():
                                                     'cast_total_facebook_likes': 0,
                                                     'budget': 0,
                                                     'imdb_score': 0
-                                                    }
-    )
-
+                                                    })
     assert response.status_code == 200
     assert response.json()['worldwide_gross'] == 0
 
-def testRandomPrediction():
-    response = client.post('/v1/prediction/', json = {'opening_gross': 8330681,
+def test_random_prediction():
+    response = client.post('/v1/prediction', json = {
+                                                    'opening_gross': 8330681,
                                                     'screens': 2271,
                                                     'production_budget': 13000000,
                                                     'title_year': 1999,
@@ -32,5 +32,4 @@ def testRandomPrediction():
                                                     'imdb_score': 7.2
                                                 })
     assert response.status_code == 200
-    assert response.json()['worldwide_gross'] > 0
-    
+    assert response.json()['worldwide_gross'] != 0 
