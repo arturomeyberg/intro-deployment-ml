@@ -17,6 +17,9 @@ jobs:
         run: |
           pip install dvc[gs]
           pip install -r requeriments_test.txt
+      - name: Test key
+        run: |
+          python test_env.py
       - name: Test API
         run: |
           export GOOGLE_APPLICATION_CREDENTIALS=$(python utilities/setter.py)
