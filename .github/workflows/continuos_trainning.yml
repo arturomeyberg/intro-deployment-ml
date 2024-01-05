@@ -16,7 +16,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repo
-        uses: action/checkout@v2
+        uses: action/checkout@v3
       - name: Train model
         env:
           SERVICE_ACCOUNT_KEY: ${{ secrets.SERVICE_ACCOUNT_KEY }}
@@ -41,7 +41,7 @@ jobs:
         with:
             github_toke: ${{ secrets.GITHUB_TOKEN }}
             branch: ${{ github.ref }}
-      - uses: iteractive/setup-cml@v2
+      - uses: iterative/setup-cml@v2
       - name: "Push metrics"
         env:
             REPO_TOKE: ${{ secrets.GITHUB_TOKEN }}
